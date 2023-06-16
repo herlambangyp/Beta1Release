@@ -880,8 +880,8 @@ img<!DOCTYPE html>
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4 posts-list">
-
-          <div class="col-xl-4 col-lg-6">
+												
+		<div class="col-xl-4 col-lg-6">
             <article>
 
               <div class="post-img">
@@ -1034,18 +1034,226 @@ img<!DOCTYPE html>
             </article>
           </div><!-- End post list item -->
 
+			<div class="col-xl-4 col-lg-6">
+            <article>
+
+              <div class="post-img">
+                <img src="Foto/Paratap.JPG" alt="" class="fotojudulberita">
+              </div>
+
+              <p class="post-category">Riset</p>
+
+              <h2 class="portfolio-info">
+                <a class="judulberita" href="blog-details.html">Penyadap Getah Pinus Berdaya Baterai Pertama di Indonesia Parametrik telah<i class="selengkapnya">...Selengkapnya</i></a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <img src="assets/img/Profil/Tanpa.png" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Aksitaru</p>
+                  <p class="post-date">
+                    <time datetime="2022-12-22">Kamis, 22 Desember 2022</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-xl-4 col-lg-6">
+            <article>
+
+              <div class="post-img">
+                <img src="Foto/Wisata MKHD.png" alt="" class="fotojudulberita">
+              </div>
+
+              <p class="post-category">Sosial</p>
+
+              <h2 class="portfolio-info">
+                <a class="judulberita" href="blog-details.html">UNS dan Parametrik Rilis Desa Wisata Berbasis Mikrohidro yaitu Sebuah Alat<i class="selengkapnya">...Selengkapnya</i></a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <img src="assets/img/Profil/Tanpa.png" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Aksitaru</p>
+                  <p class="post-date">
+                    <time datetime="2022-12-17">Sabtu, 17 Desember 2022</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-xl-4 col-lg-6">
+            <article>
+
+              <div class="post-img">
+                <img src="Foto/Apresiasi Parapump.jpeg" alt="" class="fotojudulberita">
+              </div>
+
+              <p class="post-category">Sosial</p>
+
+              <h2 class="portfolio-info">
+                <a class="judulberita" href="blog-details.html">Tokoh Masyarakat Karanganyar, Apresiasi Instalasi Parapump yang telah<i class="selengkapnya">...Selengkapnya</i></a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <img src="assets/img/Profil/Tanpa.png" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Aksitaru</p>
+                  <p class="post-date">
+                    <time datetime="2022-06-11">Sabtu, 11 Juni 2022</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+
         </div><!-- End blog posts list -->
 
-        <div class="pagination d-flex justify-content-center">
-          <ul>
-            <li><a href="#">1</a></li>
-            <li class="active"><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-          </ul>
-        </div><!-- End pagination -->
+
+
+
+<!-- Script Nomor Halaman
+
+(Maaf eh, script JS buat nomor halaman aku taruh html, 
+soalnya kalo di main.js kejauhan buat nge-link element sectornya (mager buat bolak-balik file)
+jadi aku overline disini, hehe
+Vn: Putra)
+
+--> 
+		  
+<div class="pagination d-flex justify-content-center" id="pagination">
+			
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var postsList = document.querySelector(".posts-list");
+    var posts = postsList.getElementsByClassName("col-xl-4 col-lg-6");
+    var postsPerPage = 6;
+    var totalPages = Math.ceil(posts.length / postsPerPage);
+    var currentPage = 1;
+
+function showPage(pageNumber) {
+  var startIndex = (pageNumber - 1) * postsPerPage;
+  var endIndex = Math.min(startIndex + postsPerPage, posts.length);
+
+  for (var i = 0; i < posts.length; i++) {
+    if (i >= startIndex && i < endIndex) {
+      posts[i].classList.remove("fade-out");
+    } else {
+      posts[i].classList.add("fade-out");
+    }
+  }
+}
+
+
+    function createPagination() {
+      var pagination = document.getElementById("pagination");
+
+      // Tombol Sebelumnya
+      var prevButton = document.createElement("li");
+      prevButton.innerHTML = `<a href="#" class="pagination-button previous">&lt;</a>`;
+      prevButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        if (currentPage > 1) {
+          currentPage--;
+          showPage(currentPage);
+          updatePagination();
+        }
+      });
+
+      // Tombol Selanjutnya
+      var nextButton = document.createElement("li");
+      nextButton.innerHTML = `<a href="#" class="pagination-button next">&gt;</a>`;
+      nextButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+          currentPage++;
+          showPage(currentPage);
+          updatePagination();
+        }
+      });
+
+      var paginationContainer = document.createElement("ul");
+
+      pagination.appendChild(paginationContainer);
+      paginationContainer.appendChild(prevButton);
+
+      // Nomor Halaman
+      function createPageLink(pageNumber) {
+        var li = document.createElement("li");
+        var link = document.createElement("a");
+        link.href = "#";
+        link.textContent = pageNumber;
+
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          currentPage = parseInt(this.textContent);
+          showPage(currentPage);
+          updatePagination();
+        });
+
+        if (pageNumber === currentPage) {
+          link.classList.add("active");
+        }
+
+        li.appendChild(link);
+        paginationContainer.appendChild(li);
+      }
+
+      function updatePagination() {
+        paginationContainer.innerHTML = "";
+        paginationContainer.appendChild(prevButton);
+
+        var startPage, endPage;
+
+        if (totalPages <= 3) {
+          startPage = 1;
+          endPage = totalPages;
+        } else if (currentPage <= 2) {
+          startPage = 1;
+          endPage = 3;
+        } else if (currentPage >= totalPages - 1) {
+          startPage = totalPages - 2;
+          endPage = totalPages;
+        } else {
+          startPage = currentPage - 1;
+          endPage = currentPage + 1;
+        }
+
+        for (var i = startPage; i <= endPage; i++) {
+          createPageLink(i);
+        }
+
+        paginationContainer.appendChild(nextButton);
+      }
+
+      function updateActivePage() {
+        var links = paginationContainer.getElementsByTagName("a");
+
+        for (var i = 0; i < links.length; i++) {
+          links[i].classList.remove("active");
+        }
+
+        links[currentPage - 1].classList.add("active");
+      }
+
+      showPage(currentPage);
+      updatePagination();
+    }
+
+    createPagination();
+  });
+</script>
+
+
 
       </div>
-
+		  
     </section><!-- End Blog Section -->
 
 
