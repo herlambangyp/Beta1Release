@@ -1430,8 +1430,57 @@ i.selengkapnya{
 
 .blog .pagination li.active a,
 .blog .pagination li:hover a {
-  color: var(--color-inverse);
+  color: #FFFEFE;
 }
+
+.blog .pagination li a {
+  color: #FFFFFF;
+  padding: 7px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Tambahkan gaya berikut untuk mengubah warna dan tampilan kotak angka */
+  border: 1px solid #FFFFFF;
+  background-color: #000000;
+  border-radius: 2px;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+}
+
+.blog a.pagination-button .next .active{
+	color: #FFFFFF;
+	background-color: #000000;
+	border-color: #FFFFFF
+}
+.blog .pagination a.active{
+	
+	  color: #000000;
+  background-color: #18D26E;
+  border-color: var(--color-primary);
+}
+
+.blog .pagination li:hover a {
+  color: #000000;
+  /* Tambahkan gaya berikut untuk mengubah warna latar belakang dan tampilan kotak angka ketika aktif atau dihover */
+  background-color: #18D26E;
+  border-color: var(--color-primary);
+}
+.posts-list .col-xl-4,
+.posts-list .col-lg-6 {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.posts-list .col-xl-4.fade-out,
+.posts-list .col-lg-6.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
 
 /*--------------------------------------------------------------
 # Blog Details Page
