@@ -31,6 +31,16 @@ img<!DOCTYPE html>
 </head>
 
 <body>
+	
+<script>
+  function filterCategory(category) {
+    sessionStorage.setItem("selectedCategory", category);
+    window.location.href = "index.html#blog";
+  }
+</script>
+
+
+
 
   <!-- ======= Header ======= -->
   <header id="header">
@@ -954,7 +964,7 @@ Emergency Ventilator mampu membantu pihak medis dalam memompa denyut jantung dan
               <div class="sidebar-item search-form">
 				  <h3 class="sidebar-title">Cari</h3>
 				  <form action="" class="mt-3">
-              <input type="text">
+              <input type="text" id="searchInput" placeholder="Cari">
                   <button type="submit"><i class="bi bi-search"></i></button>
                 </form>
 </div><!-- End sidebar search formn-->
@@ -962,10 +972,10 @@ Emergency Ventilator mampu membantu pihak medis dalam memompa denyut jantung dan
               <div class="sidebar-item categories">
                 <h3 class="sidebar-title">Kategori</h3>
                 <ul class="mt-3">
-                  <li><a href="#">Event</a></li>
-                  <li><a href="#">Riset</a></li>
-                  <li><a href="#">Sosial</a></li>
-                  <li><a href="#">Parametrik</a></li>
+                  <li><a href="javascript:void(0)" onclick="filterCategory('event')">Event</a></li>
+                  <li><a href="javascript:void(0)" onclick="filterCategory('riset')">Riset</a></li>
+                  <li><a href="javascript:void(0)" onclick="filterCategory('sosial')">Sosial</a></li>
+                  <li><a href="javascript:void(0)" onclick="filterCategory('parametrik')">Parametrik</a></li>
               </div><!-- End sidebar categories-->
 
               <div class="sidebar-item recent-posts">

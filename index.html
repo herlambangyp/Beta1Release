@@ -28,9 +28,39 @@ img<!DOCTYPE html>
   <link href="assets/css/style.css" rel="stylesheet">
 
 
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    var selectedCategory = sessionStorage.getItem("selectedCategory");
+    if (selectedCategory) {
+      filterCategory(selectedCategory);
+      sessionStorage.removeItem("selectedCategory");
+    }
+  });
+</script>
+
+
+
+
+
 </head>
 
 <body>
+	
+<script>
+  function filterCategory(category) {
+    var posts = document.getElementsByClassName("col-xl-4 col-lg-6");
+    for (var i = 0; i < posts.length; i++) {
+      var post = posts[i];
+      var postCategory = post.getAttribute("data-category");
+      if (category === "all" || category === postCategory) {
+        post.style.display = "block";
+      } else {
+        post.style.display = "none";
+      }
+    }
+  }
+</script>
+
 
   <!-- ======= Header ======= -->
   <header id="header">
@@ -881,7 +911,7 @@ img<!DOCTYPE html>
 
         <div class="row gy-4 posts-list">
 												
-		<div class="col-xl-4 col-lg-6">
+		<div class="col-xl-4 col-lg-6" data-category="event">
             <article>
 
               <div class="post-img">
@@ -907,7 +937,7 @@ img<!DOCTYPE html>
             </article>
           </div><!-- End post list item -->
 
-          <div class="col-xl-4 col-lg-6">
+          <div class="col-xl-4 col-lg-6" data-category="riset">
             <article>
 
               <div class="post-img">
@@ -930,7 +960,7 @@ img<!DOCTYPE html>
             </article>
           </div><!-- End post list item -->
 
-          <div class="col-xl-4 col-lg-6">
+          <div class="col-xl-4 col-lg-6" data-category="event">
             <article>
 
               <div class="post-img">
@@ -956,7 +986,7 @@ img<!DOCTYPE html>
             </article>
           </div><!-- End post list item -->
 
-          <div class="col-xl-4 col-lg-6">
+          <div class="col-xl-4 col-lg-6" data-category="riset">
             <article>
 
               <div class="post-img">
@@ -982,7 +1012,7 @@ img<!DOCTYPE html>
             </article>
           </div><!-- End post list item -->
 
-          <div class="col-xl-4 col-lg-6">
+          <div class="col-xl-4 col-lg-6" data-category="sosial">
             <article>
 
               <div class="post-img">
@@ -1008,7 +1038,7 @@ img<!DOCTYPE html>
             </article>
           </div><!-- End post list item -->
 
-          <div class="col-xl-4 col-lg-6">
+          <div class="col-xl-4 col-lg-6" data-category="sosial">
             <article>
 
               <div class="post-img">
